@@ -1,9 +1,21 @@
-import { Autocomplete, Box, MenuItem, Select, TextField } from "@mui/material";
+import { ContentCut } from "@mui/icons-material";
+import {
+  Autocomplete,
+  Box,
+  Button,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { IResourceComponentsProps } from "@refinedev/core";
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
 import React from "react";
 import { Controller } from "react-hook-form";
+import { debuglog } from "util";
 
 export const BlogPostCreate: React.FC<IResourceComponentsProps> = () => {
   const {
@@ -25,6 +37,20 @@ export const BlogPostCreate: React.FC<IResourceComponentsProps> = () => {
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="off"
       >
+        <MenuItem>
+          <ListItemIcon>
+            <ContentCut fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Cut</ListItemText>
+          <Typography variant="body2" color="text.secondary">
+            ⌘X
+          </Typography>
+        </MenuItem>
+        <Button onClick={()=> console.log("Santi puto")}>
+          Hola
+          
+        </Button>
+
         <TextField
           {...register("title", {
             required: "This field is required",
